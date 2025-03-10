@@ -1,0 +1,16 @@
+# SPDX-License-Identifier: GPL-2.0-only
+
+config DRM_ACCEL_TT
+	tristate "Tenstorrent NPU"
+	depends on AMD_IOMMU
+	depends on DRM_ACCEL
+	depends on PCI && HAS_IOMEM
+	depends on X86_64
+	select DRM_SCHED
+	select DRM_GEM_SHMEM_HELPER
+	select FW_LOADER
+	select HMM_MIRROR
+	help
+	  Choose this option to enable support for Tenstorrent's NPU.
+
+	  If "M" is selected, the driver module will be amdxdna.
